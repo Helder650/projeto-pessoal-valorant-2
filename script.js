@@ -38,42 +38,42 @@ let weapons = {
     Phantom: 40,
     Ghost: 20
 }
+
 function chooseClass() {
     let selectClass = ""
     do {
         selectClass = prompt(menuText)
-        switch (selectClass) {
-            case "1":
-                return "Duelist"
-            case "2":
-                return "Initiator"
-            case "3":
-                return "Sentinel"
-            case "4":
-                return "Controller"
-            default:
-                alert("Escolha inválida. Tente novamente.")
+        if (selectClass === "1") {
+            return "Duelist"
+        } else if (selectClass === "2") {
+            return "Initiator"
+        } else if (selectClass === "3") {
+            return "Sentinel"
+        } else if (selectClass === "4") {
+            return "Controller"
+        } else {
+            alert("Escolha inválida. Tente novamente.")
         }
-    } while (selectClass === "")
+    } while (true)
 }
 
 function chooseWeapons() {
     let weaponMenu = "Escolha uma arma:\n1 - AWP (Dano: 150)\n2 - Vandal (Dano: 40)\n3 - Phantom (Dano: 40)\n4 - Ghost (Dano: 20)"
-    let selectWeapon = prompt(weaponMenu)
-
-    switch (selectWeapon) {
-        case "1":
+    let selectWeapon
+    do {
+        selectWeapon = prompt(weaponMenu)
+        if (selectWeapon === "1") {
             return "AWP"
-        case "2":
+        } else if (selectWeapon === "2") {
             return "Vandal"
-        case "3":
+        } else if (selectWeapon === "3") {
             return "Phantom"
-        case "4":
+        } else if (selectWeapon === "4") {
             return "Ghost"
-        default:
+        } else {
             alert("Escolha inválida. Escolha novamente.")
-            return chooseWeapons()
-    }
+        }
+    } while (true)
 }
 
 function chooseAgents() {
@@ -84,7 +84,7 @@ function chooseAgents() {
     for (let i = 0; i < agents.length; i++) {
         menuAgents += `\n${agents[i]}`
     }
-
+  
     let selectAgent = prompt(menuAgents)  
     const agentIndex = agents.indexOf(selectAgent)
 
@@ -142,8 +142,6 @@ function startBattle(agent1, agent2, weapon) {
 }
 
 chooseAgents()
-   
-
 
 
 
